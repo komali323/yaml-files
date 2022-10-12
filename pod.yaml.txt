@@ -1,0 +1,22 @@
+kind: Pod  
+apiVersion: v1  
+metadata:  
+name: busybox-secrets 
+spec:  
+containers:  
+- name: busybox  
+image: busybox  
+command:  
+- "/bin/sleep"  
+- "500"  
+volumeMounts:  
+- name: XXXX  
+mountPath: "/mnt/secrets-store"  
+readOnly: true  
+volumes:  
+- name: XXXXX 
+csi:  
+driver: <driver_name>  
+readOnly: true  
+volumeAttributes:  
+secretProviderClass: <class_name>
